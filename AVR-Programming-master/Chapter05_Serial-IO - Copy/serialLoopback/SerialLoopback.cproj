@@ -51,6 +51,7 @@
       </ToolNumber>
       <ToolName xmlns="">Simulator</ToolName>
     </com_atmel_avrdbg_tool_simulator>
+    <preserveEEPROM>true</preserveEEPROM>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -108,10 +109,10 @@
       </AvrGcc>
     </ToolchainSettings>
     <UsesExternalMakeFile>True</UsesExternalMakeFile>
-    <OutputDirectory>C:\Users\john\CloudStation\Code\AVR\AVR-Programming-master\Chapter05_Serial-IO - Copy\serialLoopback</OutputDirectory>
+    <OutputDirectory>C:\Users\John\Code\avr\AVR-Programming-master\Chapter05_Serial-IO - Copy\serialLoopback</OutputDirectory>
     <BuildTarget>all</BuildTarget>
     <CleanTarget>clean</CleanTarget>
-    <ExternalMakeFilePath>C:\Users\john\CloudStation\Code\AVR\AVR-Programming-master\Chapter05_Serial-IO - Copy\serialLoopback\Makefile</ExternalMakeFilePath>
+    <ExternalMakeFilePath>C:\Users\John\Code\avr\AVR-Programming-master\Chapter05_Serial-IO - Copy\serialLoopback\Makefile</ExternalMakeFilePath>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="serialLoopback.c">
