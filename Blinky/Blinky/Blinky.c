@@ -5,7 +5,7 @@
 *  Author: John
 */
 
-#define F_CPU 1000000L
+#define F_CPU 16000000L
 
 #include <avr/io.h>
 #include <util/delay.h>
