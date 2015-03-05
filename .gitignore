@@ -8,3 +8,8 @@ Blinky/Blinky/Debug/makedep.mk
 Blinky/Blinky/Debug/Blinky.o
 Blinky/Blinky/Debug/Makefile
 Blinky/Blinky/Debug/Blinky.srec
+*.o
+*.eep
+*.map
+*.mk
+*.srec
