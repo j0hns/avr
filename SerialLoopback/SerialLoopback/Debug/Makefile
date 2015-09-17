@@ -32,11 +32,14 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../packages \
+../packages/USART
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../../../packages/USART/USART.c \
 ../SerialLoopback.cpp
 
 
@@ -47,15 +50,19 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+packages/USART/USART.o \
 SerialLoopback.o
 
 OBJS_AS_ARGS +=  \
+packages/USART/USART.o \
 SerialLoopback.o
 
 C_DEPS +=  \
+packages/USART/USART.d \
 SerialLoopback.d
 
 C_DEPS_AS_ARGS +=  \
+packages/USART/USART.d \
 SerialLoopback.d
 
 OUTPUT_FILE_PATH +=SerialLoopback.elf
@@ -74,6 +81,15 @@ LINKER_SCRIPT_DEP+=
 # AVR32/GNU C Compiler
 
 
+
+
+
+packages/USART/%.o: ../../../packages/USART/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 4.8.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega168pa -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
 
 ./%.o: .././%.cpp
 	@echo Building file: $<

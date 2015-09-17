@@ -10,15 +10,13 @@ Takes in a character at a time and sends it right back out,
 //-I (Include path) set up in project properties for C++. This will find headers
 // -L (Librabry Path) set up in project properties for linker.
 
-
+#define F_CPU 16000000UL
 
 // ------- Preamble -------- //
 #include <avr/io.h>
 #include <util/delay.h>
 #include "pinDefines.h"
 #include "USART.h"
-
-extern "C" void initUSART(void);
 
 int main(void) {
   char serialCharacter;
