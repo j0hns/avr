@@ -23,7 +23,7 @@ Pin 3 - Gnd
 */
 
 #define V_IN 3300L
-#define F_CPU 16000000L
+//#define F_CPU 16000000L - defined in project properties
 
 #include <avr/io.h>
 #include <util/delay.h>
