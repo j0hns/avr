@@ -151,6 +151,10 @@
       <SubType>compile</SubType>
       <Link>libs\RF24.cpp</Link>
     </Compile>
+    <Compile Include="..\..\..\packages\SPI\SPI.cpp">
+      <SubType>compile</SubType>
+      <Link>libs\SPI.cpp</Link>
+    </Compile>
     <Compile Include="TemperatureSender.cpp">
       <SubType>compile</SubType>
     </Compile>

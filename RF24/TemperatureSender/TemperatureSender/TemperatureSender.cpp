@@ -41,7 +41,7 @@ Pin 3 - Gnd
 // Set up nRF24L01 radio on SPI bus plus pins 9 & 10
 
 RF24 radio(9,10);
-
+const uint64_t pipe = 0xE8E8F0F0E1LL; // Define the transmit pipe
 
 // -------- Functions --------- //
 static inline void initADC0(void) {
@@ -72,8 +72,7 @@ int readTemperatureSensorInCelsius() {
 }
 
 void sendRF24(float celsius) {
-	float x;
-	x=celsius;
+	  radio.write(&celsius, sizeof(celsius) );
 	//std:stringstream msg;
 	//msg << celsius << "C";
 	//printString(msg.str().c_sr());
@@ -85,7 +84,7 @@ int main(void) {
 	double temperatureInCelsius;
 	
 	initADC0();
-	
+	radio.begin();	radio.openWritingPipe(pipe);
 	// ------ Event loop ------ //
 	while (1) {
 

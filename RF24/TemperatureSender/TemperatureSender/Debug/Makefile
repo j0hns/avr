@@ -39,6 +39,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../../../../../RF24/RF24.cpp \
+../../../../packages/SPI/SPI.cpp \
 ../TemperatureSender.cpp
 
 
@@ -50,18 +51,22 @@ ASM_SRCS +=
 
 OBJS +=  \
 libs/RF24.o \
+libs/SPI.o \
 TemperatureSender.o
 
 OBJS_AS_ARGS +=  \
 libs/RF24.o \
+libs/SPI.o \
 TemperatureSender.o
 
 C_DEPS +=  \
 libs/RF24.d \
+libs/SPI.d \
 TemperatureSender.d
 
 C_DEPS_AS_ARGS +=  \
 libs/RF24.d \
+libs/SPI.d \
 TemperatureSender.d
 
 OUTPUT_FILE_PATH +=TemperatureSender.elf
@@ -83,7 +88,16 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
 libs/%.o: ../../../../../RF24/%.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 4.8.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000 -DARDUINO=160  -I"../../../../packages" -I"../../../../packages/USART" -I"../../../../packages/SPI" -I"../../../../packages/arduino" -I"../../../../../RF24"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega168p -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+libs/%.o: ../../../../packages/SPI/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.8.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000 -DARDUINO=160  -I"../../../../packages" -I"../../../../packages/USART" -I"../../../../packages/SPI" -I"../../../../packages/arduino" -I"../../../../../RF24"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega168p -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
