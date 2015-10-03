@@ -73,9 +73,6 @@ int readTemperatureSensorInCelsius() {
 
 void sendRF24(float celsius) {
 	  radio.write(&celsius, sizeof(celsius) );
-	//std:stringstream msg;
-	//msg << celsius << "C";
-	//printString(msg.str().c_sr());
 }
 
 int main(void) {

@@ -13,3 +13,5 @@ Blinky/Blinky/Debug/Blinky.srec
 *.map
 *.mk
 *.srec
+RF24/TemperatureSender/TemperatureSender.atsuo
+RF24/TemperatureSender/TemperatureSender/Debug/Makefile
