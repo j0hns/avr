@@ -38,8 +38,7 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
-    <avrtool>
-    </avrtool>
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
     <com_atmel_avrdbg_tool_simulator>
       <ToolOptions xmlns="">
         <InterfaceProperties>
@@ -114,7 +113,6 @@
   <avrgcccpp.compiler.symbols.DefSymbols>
     <ListValues>
       <Value>DEBUG</Value>
-      <Value>F_CPU=16000000</Value>
       <Value>ARDUINO=160</Value>
     </ListValues>
   </avrgcccpp.compiler.symbols.DefSymbols>
@@ -155,6 +153,10 @@
     <Compile Include="..\..\..\packages\SPI\SPI.cpp">
       <SubType>compile</SubType>
       <Link>libs\SPI.cpp</Link>
+    </Compile>
+    <Compile Include="..\..\..\packages\USART\USART.c">
+      <SubType>compile</SubType>
+      <Link>libs\USART.c</Link>
     </Compile>
     <Compile Include="TemperatureSender.cpp">
       <SubType>compile</SubType>

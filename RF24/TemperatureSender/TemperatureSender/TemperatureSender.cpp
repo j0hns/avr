@@ -23,7 +23,7 @@ Pin 3 - Gnd
 */
 
 #define V_IN 3300L
-//#define F_CPU 16000000L - defined in project properties
+#define F_CPU 8000000L
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -34,14 +34,24 @@ Pin 3 - Gnd
 #include "nRF24L01.h"
 #include "RF24.h"
 
+extern "C" {
+	#include "USART.h" //a C header, so wrap it in extern "C"
+}
+
+
+
 //
 // Hardware configuration
 //
 
 // Set up nRF24L01 radio on SPI bus plus pins 9 & 10
 
-RF24 radio(9,10);
+const uint8_t cepin=9; //Arduino Pin 9 = ATMEGA168P Pin 15 = PB1
+const uint8_t cspin=10;//Arduino Pin 10 = ATMEGA168P Pin 16 = PB2
 const uint64_t pipe = 0xE8E8F0F0E1LL; // Define the transmit pipe
+
+RF24 radio(cepin,cspin);
+
 
 // -------- Functions --------- //
 static inline void initADC0(void) {
@@ -77,7 +87,9 @@ void sendRF24(float celsius) {
 
 int main(void) {
 	// -------- Inits --------- //
-	
+	 initUSART();
+	 printString("Hello World!\r\n");
+	 
 	double temperatureInCelsius;
 	
 	initADC0();

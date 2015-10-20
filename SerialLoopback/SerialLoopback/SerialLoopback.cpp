@@ -8,15 +8,18 @@ Takes in a character at a time and sends it right back out,
 
 
 //-I (Include path) set up in project properties for C++. This will find headers
-// -L (Librabry Path) set up in project properties for linker.
+// -L (Library Path) set up in project properties for linker.
 
-#define F_CPU 16000000UL
+#define F_CPU 8000000UL
 
 // ------- Preamble -------- //
 #include <avr/io.h>
 #include <util/delay.h>
 #include "pinDefines.h"
-#include "USART.h"
+
+extern "C" {
+	#include "USART.h" //a C header, so wrap it in extern "C"
+}
 
 int main(void) {
   char serialCharacter;

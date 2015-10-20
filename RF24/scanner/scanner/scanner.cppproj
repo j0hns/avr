@@ -129,7 +129,7 @@
   <avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
   <avrgcccpp.compiler.symbols.DefSymbols>
     <ListValues>
-      <Value>F_CPU=16000000L</Value>
+      <Value>F_CPU=8000000L</Value>
       <Value>ARDUINO=160</Value>
       <Value>DEBUG</Value>
     </ListValues>
@@ -164,13 +164,13 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\..\..\..\Program Files %28x86%29\Arduino\hardware\arduino\avr\libraries\SPI\SPI.cpp">
-      <SubType>compile</SubType>
-      <Link>libs\SPI.cpp</Link>
-    </Compile>
     <Compile Include="..\..\..\..\RF24\RF24.cpp">
       <SubType>compile</SubType>
       <Link>libs\RF24.cpp</Link>
+    </Compile>
+    <Compile Include="..\..\..\packages\SPI\SPI.cpp">
+      <SubType>compile</SubType>
+      <Link>libs\SPI.cpp</Link>
     </Compile>
     <Compile Include="scanner.cpp">
       <SubType>compile</SubType>

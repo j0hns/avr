@@ -5,7 +5,7 @@
 *  Author: John
 */
 
-#define F_CPU 16000000L
+#define F_CPU 8000000L
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -18,10 +18,10 @@ int main(void)
 	while(1)
 	{
 		PORTB= 0b00000001; //Turn on first LED pin in PORTB
-		_delay_ms(15);
+		_delay_ms(1000);
 		
 		PORTB = 0b00000000; // And turn off
-		_delay_ms(15);
+		_delay_ms(2000);
 		
 		
 	
