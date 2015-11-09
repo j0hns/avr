@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "TemperatureSender", "TemperatureSender\TemperatureSender_6_2.cppproj", "{29CA7274-00B5-4E98-B4BC-0B9F9A83EB33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29CA7274-00B5-4E98-B4BC-0B9F9A83EB33}.Debug|AVR.ActiveCfg = Debug|AVR
+		{29CA7274-00B5-4E98-B4BC-0B9F9A83EB33}.Debug|AVR.Build.0 = Debug|AVR
+		{29CA7274-00B5-4E98-B4BC-0B9F9A83EB33}.Release|AVR.ActiveCfg = Release|AVR
+		{29CA7274-00B5-4E98-B4BC-0B9F9A83EB33}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
