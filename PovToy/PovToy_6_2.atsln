@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "PovToy", "PovToy\PovToy_6_2.cproj", "{360FDC66-F4EF-4B1D-9839-0B66C7C221CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{360FDC66-F4EF-4B1D-9839-0B66C7C221CF}.Debug|AVR.ActiveCfg = Debug|AVR
+		{360FDC66-F4EF-4B1D-9839-0B66C7C221CF}.Debug|AVR.Build.0 = Debug|AVR
+		{360FDC66-F4EF-4B1D-9839-0B66C7C221CF}.Release|AVR.ActiveCfg = Release|AVR
+		{360FDC66-F4EF-4B1D-9839-0B66C7C221CF}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
