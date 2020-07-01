@@ -21,7 +21,7 @@ int main(void)
 		_delay_ms(1000);
 		
 		PORTB = 0b00000000; // And turn off
-		_delay_ms(2000);
+		_delay_ms(500);
 		
 		
 	
