@@ -10,7 +10,7 @@ Takes in a character at a time and sends it right back out,
 //-I (Include path) set up in project properties for C++. This will find headers
 // -L (Library Path) set up in project properties for linker.
 
-#define F_CPU 8000000UL
+//#define F_CPU 8000000UL
 
 // ------- Preamble -------- //
 #include <avr/io.h>
