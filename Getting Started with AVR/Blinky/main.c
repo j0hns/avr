@@ -12,15 +12,20 @@
 //for use with OneDrive\Documents\Maker\AVR ISP Programmer\ZIF Programmer.fzz
 //Led on pin 14 = PB0
 
+//use macros to make it more readable
+#define LED_PB0_ON		PORTB |= (1<<PORTB0);//set pin 14 (PB0) high - switch on
+#define LED_PB0_TOGGLE	PINB |= (1<<PINB0); //toggle PB0
+
 int main(void)
 {
 	
     DDRB = (1<<DDB0); // Data direction register - Set PB0 high for output
-	PORTB |= (1<<PORTB0);//set pin 14 (PB0) high - switch on
+	
+	LED_PB0_ON;
 	
     while (1) 
     {
-		PINB |= (1<<PINB0); //toggle PB0
+		LED_PB0_TOGGLE;
 		_delay_ms(500);
     }
 }
