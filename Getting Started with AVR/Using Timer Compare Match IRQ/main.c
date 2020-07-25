@@ -32,7 +32,7 @@ void Set_Timer1_Interrupt_Frequency(uint8_t freqHz)
 {
 	TCCR1B |= (1<<CS12) | (1<<WGM12); // Timer/Counter Control Register B = clkI/O/256 (From prescaler) |  Clear Timer on Compare match (CTC) mode
 	TIMSK1 |= (1<<OCIE1A); //Timer/Counter1 Interrupt Mask Register = Bit 1 – OCIE1A: Timer/Counter1, Output Compare A Match Interrupt Enable
-	OCR1A = (F_CPU/(freqHz * 2 * 256) -1); //Output Compare Registers = F_CPU/frequency*2*N-1 //see 18.7.2 Clear Timer on Compare Match (CTC) Mode in datasheet
+	OCR1A = (F_CPU/(freqHz * 256) -1); //Output Compare Registers = F_CPU/frequency*2*N-1 //see 18.7.2 Clear Timer on Compare Match (CTC) Mode in datasheet
 }
 
 int main(void)
