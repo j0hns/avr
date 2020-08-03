@@ -16,6 +16,63 @@
 
 static FILE this_stdout = FDEV_SETUP_STREAM(USART_Transmit_IO, USART_Receive_IO,  _FDEV_SETUP_WRITE);
 
+typedef struct command {
+	char	cmd[MAX_COMMAND_LENGTH];
+	void	(*func)	(void);
+};
+
+void Cmd_Hello();
+void Cmd_Bye();
+
+command commands[] = {
+	{"HELLO",	Cmd_Hello},
+	{"BYE",		Cmd_Bye}
+};
+
+const int N_COMMANDS = sizeof (commands)/ sizeof (command);
+
+void Cmd_Hello()
+{
+	for (int i=0;i<=CommandManager_GetParameterAsInteger(0);i++)
+	{
+		printf("Hello %s\n",i);
+	}
+}
+
+void Cmd_Bye()
+{
+	for (int i=0;i<=CommandManager_GetParameterAsInteger(0);i++)
+	{
+
+		printf("BYE %s",i);
+		for (int j=0;j<=CommandManager_GetParameterAsInteger(2);j++){printf("!");}
+		puts("That's all")	;
+	}
+}
+
+void CommandHandler()
+{
+	
+	char* currentCommand=CommandManager_GetCommand();
+	int commandParametersCount=CommandManager_GetParameterCount();
+	
+		printf("Executing Command: %s",currentCommand);
+		for(int i=0;i<=commandParametersCount;i++)
+		{
+			printf(",%s",CommandManager_GetParameter(i));
+		}
+		printf(";");
+		
+		// Scan the command table looking for a match
+		for (int cmd = 0; cmd < N_COMMANDS; cmd++) {
+			if (strcmp (commands[cmd].cmd, currentCommand) == 0) {
+				commands[cmd].func();  // command found, run its function
+				goto done;
+			}
+		}
+		
+	done:
+}
 int main(void)
 {
 		//TEST
@@ -23,7 +80,7 @@ int main(void)
 		int endLoop=strlen(testCommand);
 		for (int i=0;i < endLoop ;i++)
 		{
-			HandleCommands(testCommand[i]);
+			CommandManager_HandleCommands(testCommand[i],CommandHandler);
 		}
 		
 
@@ -39,7 +96,7 @@ int main(void)
 		
 		while (!USART_ReceiveIsEmpty())
 		{
-			HandleCommands(USART_Receive());
+			CommandManager_HandleCommands(USART_Receive());
 		}
 	}
 		

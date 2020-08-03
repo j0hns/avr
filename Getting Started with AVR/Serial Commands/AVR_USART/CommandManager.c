@@ -15,22 +15,32 @@ static char commandParameters[MAX_COMMAND_PARAMETERS][MAX_PARAMETER_LENGTH];
 static int commandParametersIndex; //number of actual parameters in command
 static int commandIndex=-1;
 
-int	GetParameter (int parameterIndex)
+char *CommandManager_GetParameter(int parameterIndex)
+{
+	return commandParameters[parameterIndex];
+}
+
+int	CommandManager_GetParameterAsInteger (int parameterIndex)
 {
 	return atoi(commandParameters[parameterIndex]);
 }
 
-void ExecuteCommand(void)
+int	CommandManager_GetParameterCount ()
 {
-	printf("Executing Command: %s",command);
-	for(int i=0;i<=commandParametersIndex;i++)
-	{
-		printf(",%s",commandParameters[i]);
-	}
-	printf(";");
+	return commandParametersIndex;
+}
+
+char *	CommandManager_GetCommand (void)
+{
+	return command;
+}
+
+void ExecuteCommand( void (*commandCallback)(void))
+{
+
 	
 	//execute command
-	
+	(*commandCallback);
 	
 	//reset
 	memset(command, 0, sizeof command);
@@ -39,7 +49,7 @@ void ExecuteCommand(void)
 	commandIndex=-1;
 }
 
-void HandleCommands(char c)
+void CommandManager_HandleCommands(char c, void (*commandCallback)(void))
 {
 	//command handling loop
 
@@ -48,7 +58,7 @@ void HandleCommands(char c)
 	const int MAXPARAMETERLENGTH=MAX_PARAMETER_LENGTH;
 	if (c==';') //end of command
 	{
-		ExecuteCommand();
+		ExecuteCommand(commandCallback);
 	}
 	else
 	{
