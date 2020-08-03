@@ -148,6 +148,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CommandManager.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="CommandManager.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="USART_irq.c">
       <SubType>compile</SubType>
     </Compile>
